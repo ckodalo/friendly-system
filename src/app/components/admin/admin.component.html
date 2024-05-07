@@ -1,0 +1,29 @@
+<div class="admin-dashboard">
+    <h2>Performance Overview</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Form</th>
+          <th>Total Enrolled</th>
+          <th>Mean Grade</th>
+          <th>Mean Mark</th>
+          <th>Mean Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let form of formPerformanceMetrics">
+          <td>Form {{ form.form }}</td>
+          <td>{{ form.totalStudents }}</td>
+          <td>{{ form.meanGrade }}</td>
+          <td>{{ form.meanMark }}</td>
+          <td>{{ form.meanPoints }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>School Summary Metrics</h2>
+    <div class="school-summary">
+        <p>Teachers: {{ numberOfTeachers }} | Students: {{ numberOfStudents }} | Forms: {{ numberOfForms }}</p>
+    </div>
+    <button (click)="goToTeacherDashboard()">Go to Teacher Dashboard</button>
+  </div>
+  
