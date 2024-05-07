@@ -1,0 +1,96 @@
+{
+    "students": [
+      {
+        "id": 1,
+        "name": "Kevin Waliula",
+        "form": 1,
+        "marks": {
+          "Maths": 85,
+          "English": 78,
+          "Science": 90,
+          "Social Studies": 82
+        }
+      },
+      {
+        "id": 2,
+        "name": "Maria Kamau",
+        "form": 2,
+        "marks": {
+          "Maths": 75,
+          "English": 80,
+          "Science": 70,
+          "Social Studies": 85
+        }
+      },
+      {
+        "id": 3,
+        "name": "David Wafula",
+        "form": 3,
+        "marks": {
+          "Maths": 90,
+          "English": 85,
+          "Science": 88,
+          "Social Studies": 92
+        }
+      },
+      {
+        "id": 4,
+        "name": "Emily Wangeci",
+        "form": 4,
+        "marks": {
+          "Maths": 78,
+          "English": 85,
+          "Science": 80,
+          "Social Studies": 75
+        }
+      },
+      {
+        "id": 5,
+        "name": "Michael Indeje",
+        "form": 1,
+        "marks": {
+          "Maths": 80,
+          "English": 72,
+          "Science": 85,
+          "Social Studies": 79
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sophia Mandela",
+        "form": 2,
+        "marks": {
+          "Maths": 88,
+          "English": 82,
+          "Science": 78,
+          "Social Studies": 90
+        }
+      },
+      {
+        "id": 7,
+        "name": "Jacob Andere",
+        "form": 3,
+        "marks": {
+          "Maths": 85,
+          "English": 88,
+          "Science": 90,
+          "Social Studies": 84
+        }
+      },
+      {
+        "id": 8,
+        "name": "Olivia Nkeisuru",
+        "form": 4,
+        "marks": {
+          "Maths": 92,
+          "English": 90,
+          "Science": 85,
+          "Social Studies": 88
+        }
+      }
+    ]
+  }
+
+
+  
+  
