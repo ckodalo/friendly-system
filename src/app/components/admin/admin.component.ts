@@ -2,13 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { StudentPerformanceService } from 'src/app/services/student-performance.service';
 import { Student } from 'src/app/shared/student.interface';
 import { Router } from '@angular/router';
+import { BaseChartDirective } from 'ng2-charts';
+
+
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
+  
 
   studentPerformanceData: any;
 
@@ -16,15 +20,12 @@ export class AdminComponent implements OnInit {
   
   formPerformanceMetrics: any[] = [];
 
-  numberOfTeachers: number;
-  numberOfStudents: number;
-  numberOfForms: number;
+  numberOfTeachers: number = 7;
+  numberOfStudents: number = 0;
+  numberOfForms: number = 0;
 
   constructor(private performanceService : StudentPerformanceService, private router: Router) {
-
-    this.numberOfTeachers = 10;
-    this.numberOfStudents = 1000;
-    this.numberOfForms = 4;
+    
   }
 
   ngOnInit(): void {
@@ -34,6 +35,7 @@ export class AdminComponent implements OnInit {
       this.students = data;
       this.findFormPerformanceMetrics();
       this.findSummaryMetrics();
+      
     })
   }
 
@@ -59,7 +61,11 @@ export class AdminComponent implements OnInit {
   findSummaryMetrics(): void {
     this.performanceService.getMockStudentPerformance().subscribe(students => {
       this.numberOfStudents = students.length;
-      this.numberOfForms = this.findNumberofForms(students); 
+      this.numberOfForms = this.findNumberofForms(students);
+  
+      this.chartData = [
+        { data: [this.numberOfTeachers, this.numberOfStudents, this.numberOfForms], label: 'Summary Metrics' }
+      ];
     });
   }
 
@@ -72,5 +78,19 @@ export class AdminComponent implements OnInit {
     this.router.navigate(['/teacher']);
   }
 
+
+  chartData: any[] = [
+    { data: [this.numberOfTeachers, this.numberOfStudents, this.numberOfForms], label: 'Summary Metrics' }
+  ];
+
+  chartLabels: string[] = ['Teachers', 'Students', 'Forms'];
+
+  chartOptions: any = {
+    responsive: true,
+    maintainAspectRatio: false
+  };
+
+
+  chartLegend: boolean = false;
 
 }
