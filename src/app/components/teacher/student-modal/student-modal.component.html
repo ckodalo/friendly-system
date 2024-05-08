@@ -1,0 +1,20 @@
+
+<!-- <div class="modal">
+  <h2>modal</h2>
+  <div class="modal-content"> -->
+    <div class="modal-header">
+      
+      <h2 *ngIf="student">{{ student.name }}</h2>
+      <!-- <button (click)="closeModal()">Close</button> -->
+    </div>
+    <div class="modal-body">
+      <p *ngIf="student">Student ID: {{ student.id }}</p>
+      <p *ngIf="student">Student meanMark: {{ student.meanMark }}</p>
+      <p *ngIf="student">Student meanGrade: {{ student.meanGrade }}</p>
+      <p *ngIf="student">Maths: {{ student.marks['Maths'] }}</p>
+      <p *ngIf="student">English: {{ student.marks['English'] }}</p>
+      <p *ngIf="student">Science: {{ student.marks['Science'] }}</p>
+      <p *ngIf="student">Social Studies: {{ student.marks['Social Studies'] }}</p>
+    </div>
+  <!-- </div>
+</div> -->

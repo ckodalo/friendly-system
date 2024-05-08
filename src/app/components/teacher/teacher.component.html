@@ -1,0 +1,43 @@
+<!-- <div class="teacher-dashboard">
+  <h2>Student Performance</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>Name</th>
+        <th>Maths</th>
+        <th>English</th>
+        <th>Science</th>
+        <th>Social Studies</th>
+    
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.id }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.marks['Maths'] }}</td>
+        <td>{{ student.marks['English'] }}</td>
+        <td>{{ student.marks['Science'] }}</td>
+        <td>{{ student.marks['Social Studies'] }}</td>
+        <td><button (click)="showModal(student)">Open Modal</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <app-student-modal *ngIf="showModalFlag" [student]="selectedStudent" (closeModal)="closeModal()"></app-student-modal>
+</div> -->
+<div>
+  <div>
+    <select [(ngModel)]="selectedForm" (change)="selectForm(selectedForm)">
+      <option *ngFor="let form of getFormKeys()" [value]="form">{{ form }}</option>
+    </select>
+  </div>
+  <div *ngIf="selectedForm">
+    <h2>Students in Form {{ selectedForm }}</h2>
+    <div *ngFor="let student of studentsByForm[selectedForm]" (click)="showModal(student)">
+      <p>{{ student.name }}</p>
+    </div>
+    </div>
+  
+</div>

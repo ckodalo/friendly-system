@@ -16,6 +16,10 @@ export class StudentPerformanceService {
     );
   }
 
+  filterStudentsByForm(students: Student[], form: number): Student[] {
+    return students.filter(student => student.form === form);
+  }
+
   //produces mean Mark of a group of Students, say one form
   findMeanMarkByStudents(students: Student[]): number {
      
@@ -33,6 +37,24 @@ export class StudentPerformanceService {
     });
     const meanMark = totalMarks / totalSubjects;
     return Math.round(meanMark);
+  }
+
+  findMeanMarkByStudent(student :Student): number {
+
+    const marksArray = Object.values(student.marks);
+     
+
+    const sum = marksArray.reduce((total, mark) => total + mark, 0);
+
+    return sum/marksArray.length; 
+  }
+
+  findMeanGradeByStudent(student :Student): string {
+
+    const meanMark = this.findMeanMarkByStudent(student);
+    
+    return this.findMeanGrade(meanMark);
+
   }
 
   findMeanGrade(mark :number): string {
