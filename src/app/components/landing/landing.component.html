@@ -1,54 +1,73 @@
 <app-header></app-header>
 
 <!-- hero -->
-<section id="hero">
-    <div class="container">
-      <h1>Unlock Academic Success with Our Result Analysis Dashboard</h1>
-    
+<section id="hero" class="bg-blue-500 text-white">
+    <div class="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">Unlock Academic Success with Our Result Analysis Dashboard</h1>
     </div>
   </section>
 
  <!-- features -->
-<section id="features">
-    <div class="container">
+
+<section id="features" class="bg-gray-100 py-16">
+  <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="feature bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+              <div class="icon bg-blue-500 text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+             
+              </div>
+              <h2 class="text-xl font-semibold mb-2">Teacher Companion tools</h2>
+              <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <a href="#" class="cta mt-4">Learn More</a>
+          </div>
+          <div class="feature bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+            <div class="icon bg-blue-500 text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
     
-      <div class="feature">
-  
-        <div class="icon">
- 
+            </div>
+            <h2 class="text-xl font-semibold mb-2">Convenient Results Displays on Web and Mobile</h2>
+            <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="cta mt-4">Learn More</a>
+        </div>
+        <div class="feature bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+          <div class="icon bg-blue-500 text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+           
+          </div>
+          <h2 class="text-xl font-semibold mb-2">Infinite Student Results Storage</h2>
+          <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#" class="cta mt-4">Learn More</a>
+      </div>
+          
+      </div>
+      
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="py-16">
+  <div class="container mx-auto">
+      <h2 class="text-2xl font-semibold mb-8">What Our Users Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="testimonial bg-white p-6 rounded-lg shadow-md">
+              <blockquote class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</blockquote>
+              <cite class="block mt-4">John Doe, Teacher</cite>
+          </div>
+          <div class="testimonial bg-white p-6 rounded-lg shadow-md">
+            <blockquote class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</blockquote>
+            <cite class="block mt-4">Jane Doe, Teacher</cite>
         </div>
       
-        <h2>Comprehensive Data Insights</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-       
-        <a href="#" class="cta">Learn More</a>
       </div>
-    
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Testimonials -->
-<section id="testimonials">
-    <div class="container">
-      <h2>What Our Users Say</h2>
-      <div class="testimonial">
-        <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</blockquote>
-        <cite>John Doe, Teacher</cite>
-      </div>
-      <div class="testimonial">
-        <blockquote>This dashboard has enabled me to be able to track my students progress conveniently</blockquote>
-        <cite>John Doe, Teacher</cite>
-      </div>
-      
-    </div>
-  </section>
-  
-  <!--call to action secion-->
-  <section id="cta">
-    <div class="container">
-      <h2>Ready to Transform Academic Performance?</h2>
-      <p>Sign up for a free trial or request a demo today!</p>
-      <a href="#" class="cta">Sign Up Now</a>
-    </div>
-  </section>
+
+<section id="cta" class="bg-blue-500 py-16">
+  <div class="container mx-auto text-center text-white">
+      <h2 class="text-3xl font-semibold mb-4">Ready to Transform Academic Performance?</h2>
+      <p class="text-lg mb-6">Sign up for a free trial or request a demo today!</p>
+      <a href="#" class="cta inline-block bg-white text-blue-500 py-2 px-6 rounded-full shadow-md hover:bg-blue-400 transition-colors">Sign Up Now</a>
+  </div>
+</section> 
+<!-- 
+  <a routerLink="/admin">Go to Admin Dashboard</a> -->
   <app-footer></app-footer>
