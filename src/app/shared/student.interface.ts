@@ -4,8 +4,12 @@ export interface Student {
     id: number;
     name: string;
     form: number;
-    marks: {
-      [subject: string]: number;
-    };
+    marks: Assessment[];
+  }
+
+
+  interface Assessment {
+    assessmentType: string;
+    scores: { [subject: string]: number };
   }
   
