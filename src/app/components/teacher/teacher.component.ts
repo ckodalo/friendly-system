@@ -13,11 +13,6 @@ import { StudentModalComponent } from './student-modal/student-modal.component';
 export class TeacherComponent implements OnInit {
   
     students: Student[] = [];
-    // form1Students: Student[] = [];
-    // form2Students: Student[] = [];
-    // form3Students: Student[] = [];
-    // form4Students: Student[] = [];
-  
     showModalFlag: boolean = false;
     selectedStudent: Student | null = null;
 
@@ -34,7 +29,7 @@ export class TeacherComponent implements OnInit {
         this.students = data;
         this.addMeanGradeandMeanMarktoData(this.students);
         // this.filterStudentsByForm(this.students);
-        this.fetchStudentsByForm(this.students);
+        this.findStudentsByForm(this.students);
       })
   }
 
@@ -75,15 +70,7 @@ export class TeacherComponent implements OnInit {
 
   }
 
-  // filterStudentsByForm(students: Student[]) {
-  //   this.form1Students = this.performanceService.filterStudentsByForm(students, 1);
-  //   this.form2Students = this.performanceService.filterStudentsByForm(students, 2);
-  //   this.form3Students = this.performanceService.filterStudentsByForm(students, 3);
-  //   this.form4Students = this.performanceService.filterStudentsByForm(students, 4);
-  // }
-
-
-  fetchStudentsByForm(students: Student[]) {
+  findStudentsByForm(students: Student[]) {
 
     for (const student of students) {
       if (!this.studentsByForm[student.form]) {
@@ -96,6 +83,8 @@ export class TeacherComponent implements OnInit {
   getFormKeys(): string[] {
     return Object.keys(this.studentsByForm);
   }
+
+
 
 
 }

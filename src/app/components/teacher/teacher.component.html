@@ -27,17 +27,29 @@
   </table>
   <app-student-modal *ngIf="showModalFlag" [student]="selectedStudent" (closeModal)="closeModal()"></app-student-modal>
 </div> -->
-<div>
-  <div>
-    <select [(ngModel)]="selectedForm" (change)="selectForm(selectedForm)">
-      <option *ngFor="let form of getFormKeys()" [value]="form">{{ form }}</option>
-    </select>
-  </div>
-  <div *ngIf="selectedForm">
-    <h2>Students in Form {{ selectedForm }}</h2>
-    <div *ngFor="let student of studentsByForm[selectedForm]" (click)="showModal(student)">
-      <p>{{ student.name }}</p>
+<div class="bg-gray-100 min-h-screen py-8 px-4">
+
+  <header class="bg-white shadow-md mb-8 rounded-lg">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-semibold text-gray-800">Dashboard</h1>
     </div>
+  </header>
+
+  <section class="bg-white shadow-md mb-8 rounded-lg p-6">
+    <div class="flex items-center mb-4 space-x-4">
+      <button (click)="selectForm(1)" class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">Form 1</button>
+      <button (click)="selectForm(2)" class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">Form 2</button>
+      <button (click)="selectForm(3)" class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">Form 3</button>
+      <button (click)="selectForm(4)" class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">Form 4</button>
     </div>
-  
+    
+    <div *ngIf="selectedForm" class="mt-4">
+      <h2 class="text-lg font-semibold mb-2">Students in {{ selectedForm }}</h2>
+      <ul class="divide-y divide-gray-200">
+        <li *ngFor="let student of studentsByForm[selectedForm]"  (click)="showModal(student)" class="py-2">
+          <p class="text-base font-medium">{{ student.name }}</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 </div>
