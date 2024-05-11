@@ -42,18 +42,18 @@ export class StudentPerformanceService {
     return Math.round(meanMark);
   }
 
-  findMeanMarkByStudent(student :Student): number {
+  findMeanMarkByStudent(student :Student, assesmentIndex: number): number {
 
-    const scoresArray = Object.values(student.marks[0].scores);
+    const scoresArray = Object.values(student.marks[assesmentIndex].scores);
      
     const sum = scoresArray.reduce((total, mark) => total + mark, 0);
 
-    return sum/scoresArray.length; 
+    return Math.round(sum/scoresArray.length); 
   }
 
-  findMeanGradeByStudent(student :Student): string {
+  findMeanGradeByStudent(student :Student, assesmentIndex: number): string {
 
-    const meanMark = this.findMeanMarkByStudent(student);
+    const meanMark = this.findMeanMarkByStudent(student, assesmentIndex);
     
     return this.findMeanGrade(meanMark);
 
@@ -75,6 +75,28 @@ export class StudentPerformanceService {
     
   }
 
+  addMeanGradeandMeanMarktoStudent(students : Student[], assesmentIndex: number): void {
+
+    console.log("receieved students :" + students);
+    
+    console.log("received assesment Index :" + assesmentIndex );
+
+    students.forEach(student => {
+
+      const meanMark = this.findMeanMarkByStudent(student, assesmentIndex);
+
+      const meanGrade = this.findMeanGrade(meanMark);
+    
+      student.meanMark = meanMark;
+      student.meanGrade = meanGrade;
+
+      console.log(students);
+        
+      });
+
+      
+  }
+
   awardPoints(meanGrade: string): number {
     switch (meanGrade) {
       case 'A':
@@ -93,12 +115,8 @@ export class StudentPerformanceService {
   }
 
   //for each assesment, we need to find the mean mark, and we will plot a graph of meanmark against time
-
   // do it for different subject as well,,,
-
   // your probably want this method in the service, and you can draw on it from both student and teacher components 
-
-  
   //need to calll the type StudentPerformance
 
   findMeanMarkTwo(scores: { [subject: string]: number }): number {
@@ -106,12 +124,12 @@ export class StudentPerformanceService {
     const sum = Object.values(scores).reduce((acc: number, score: number) => acc + score, 0);
     const meanMark = sum / Object.keys(scores).length;
   
-    return meanMark;
+    return Math.round(meanMark);
   }
 
-  meanMarkHistoryByStudent (students: Student[], student: Student): number[] {
+  meanMarkHistoryByStudent (students: Student[], student: Student):  {meanMark: number, assessmentDate: string}[] {
 
-    const results: number[] = [];
+    const results: {meanMark: number, assessmentDate: string}[] = [];
 
     const studentAssesments = student.marks;
 
@@ -119,7 +137,10 @@ export class StudentPerformanceService {
 
       const meanMark = this.findMeanMarkTwo(assesment.scores);
         
-        results.push(Math.round(meanMark));
+        results.push({
+          meanMark: Math.round(meanMark),
+          assessmentDate: assesment.assessmentDate  
+        });
     }
     return results;
   }

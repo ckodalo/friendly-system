@@ -10,6 +10,7 @@ export interface Student {
 
   interface Assessment {
     assessmentType: string;
+    assessmentDate: string;
     scores: { [subject: string]: number };
   }
   

@@ -6,7 +6,18 @@
       "form": 1,
       "marks": [
         {
-          "assessment": "Midterm",
+          "assessmentType": "Final Exam",
+          "assessmentDate": "2024-05-20",
+          "scores": {
+            "Maths": 90,
+            "English": 82,
+            "Science": 88,
+            "Social Studies": 85
+          }
+        },
+        {
+          "assessmentType": "Midterm",
+          "assessmentDate": "2024-05-10",
           "scores": {
             "Maths": 85,
             "English": 78,
@@ -15,12 +26,33 @@
           }
         },
         {
-          "assessment": "Final Exam",
+          "assessmentType": "Assessment 3",
+          "assessmentDate": "2024-04-25",
           "scores": {
-            "Maths": 90,
-            "English": 82,
-            "Science": 88,
-            "Social Studies": 85
+            "Maths": 88,
+            "English": 80,
+            "Science": 85,
+            "Social Studies": 79
+          }
+        },
+        {
+          "assessmentType": "Assessment 2",
+          "assessmentDate": "2024-04-10",
+          "scores": {
+            "Maths": 82,
+            "English": 75,
+            "Science": 90,
+            "Social Studies": 83
+          }
+        },
+        {
+          "assessmentType": "Assessment 1",
+          "assessmentDate": "2024-03-25",
+          "scores": {
+            "Maths": 78,
+            "English": 72,
+            "Science": 85,
+            "Social Studies": 80
           }
         }
       ]
@@ -31,7 +63,18 @@
       "form": 2,
       "marks": [
         {
-          "assessment": "Midterm",
+          "assessmentType": "Final Exam",
+          "assessmentDate": "2024-05-20",
+          "scores": {
+            "Maths": 80,
+            "English": 85,
+            "Science": 78,
+            "Social Studies": 90
+          }
+        },
+        {
+          "assessmentType": "Midterm",
+          "assessmentDate": "2024-05-10",
           "scores": {
             "Maths": 75,
             "English": 80,
@@ -40,12 +83,33 @@
           }
         },
         {
-          "assessment": "Final Exam",
+          "assessmentType": "Assessment 3",
+          "assessmentDate": "2024-04-25",
           "scores": {
-            "Maths": 80,
-            "English": 85,
-            "Science": 78,
-            "Social Studies": 90
+            "Maths": 70,
+            "English": 75,
+            "Science": 68,
+            "Social Studies": 80
+          }
+        },
+        {
+          "assessmentType": "Assessment 2",
+          "assessmentDate": "2024-04-10",
+          "scores": {
+            "Maths": 72,
+            "English": 78,
+            "Science": 75,
+            "Social Studies": 77
+          }
+        },
+        {
+          "assessmentType": "Assessment 1",
+          "assessmentDate": "2024-03-25",
+          "scores": {
+            "Maths": 68,
+            "English": 72,
+            "Science": 70,
+            "Social Studies": 75
           }
         }
       ]
@@ -56,7 +120,18 @@
       "form": 3,
       "marks": [
         {
-          "assessment": "Midterm",
+          "assessmentType": "Final Exam",
+          "assessmentDate": "2024-05-20",
+          "scores": {
+            "Maths": 85,
+            "English": 82,
+            "Science": 90,
+            "Social Studies": 84
+          }
+        },
+        {
+          "assessmentType": "Midterm",
+          "assessmentDate": "2024-05-10",
           "scores": {
             "Maths": 90,
             "English": 85,
@@ -65,12 +140,33 @@
           }
         },
         {
-          "assessment": "Final Exam",
+          "assessmentType": "Assessment 3",
+          "assessmentDate": "2024-04-25",
           "scores": {
-            "Maths": 85,
-            "English": 82,
+            "Maths": 87,
+            "English": 84,
+            "Science": 89,
+            "Social Studies": 82
+          }
+        },
+        {
+          "assessmentType": "Assessment 2",
+          "assessmentDate": "2024-04-10",
+          "scores": {
+            "Maths": 92,
+            "English": 88,
             "Science": 90,
-            "Social Studies": 84
+            "Social Studies": 85
+          }
+        },
+        {
+          "assessmentType": "Assessment 1",
+          "assessmentDate": "2024-03-25",
+          "scores": {
+            "Maths": 88,
+            "English": 82,
+            "Science": 85,
+            "Social Studies": 80
           }
         }
       ]
@@ -81,7 +177,18 @@
       "form": 4,
       "marks": [
         {
-          "assessment": "Midterm",
+          "assessmentType": "Final Exam",
+          "assessmentDate": "2024-05-20",
+          "scores": {
+            "Maths": 92,
+            "English": 90,
+            "Science": 85,
+            "Social Studies": 88
+          }
+        },
+        {
+          "assessmentType": "Midterm",
+          "assessmentDate": "2024-05-10",
           "scores": {
             "Maths": 78,
             "English": 85,
@@ -90,12 +197,33 @@
           }
         },
         {
-          "assessment": "Final Exam",
+          "assessmentType": "Assessment 3",
+          "assessmentDate": "2024-04-25",
           "scores": {
-            "Maths": 92,
-            "English": 90,
-            "Science": 85,
-            "Social Studies": 88
+            "Maths": 82,
+            "English": 80,
+            "Science": 84,
+            "Social Studies": 78
+          }
+        },
+        {
+          "assessmentType": "Assessment 2",
+          "assessmentDate": "2024-04-10",
+          "scores": {
+            "Maths": 85,
+            "English": 82,
+            "Science": 78,
+            "Social Studies": 80
+          }
+        },
+        {
+          "assessmentType": "Assessment 1",
+          "assessmentDate": "2024-03-25",
+          "scores": {
+            "Maths": 80,
+            "English": 75,
+            "Science": 75,
+            "Social Studies": 70
           }
         }
       ]
@@ -106,7 +234,18 @@
       "form": 1,
       "marks": [
         {
-          "assessment": "Midterm",
+          "assessmentType": "Final Exam",
+          "assessmentDate": "2024-05-20",
+          "scores": {
+            "Maths": 84,
+            "English": 88,
+            "Science": 82,
+            "Social Studies": 85
+          }
+        },
+        {
+          "assessmentType": "Midterm",
+          "assessmentDate": "2024-05-10",
           "scores": {
             "Maths": 80,
             "English": 72,
@@ -115,12 +254,33 @@
           }
         },
         {
-          "assessment": "Final Exam",
+          "assessmentType": "Assessment 3",
+          "assessmentDate": "2024-04-25",
           "scores": {
-            "Maths": 84,
-            "English": 88,
-            "Science": 82,
-            "Social Studies": 85
+            "Maths": 82,
+            "English": 75,
+            "Science": 80,
+            "Social Studies": 83
+          }
+        },
+        {
+          "assessmentType": "Assessment 2",
+          "assessmentDate": "2024-04-10",
+          "scores": {
+            "Maths": 75,
+            "English": 68,
+            "Science": 75,
+            "Social Studies": 77
+          }
+        },
+        {
+          "assessmentType": "Assessment 1",
+          "assessmentDate": "2024-03-25",
+          "scores": {
+            "Maths": 72,
+            "English": 65,
+            "Science": 70,
+            "Social Studies": 75
           }
         }
       ]
@@ -131,7 +291,18 @@
       "form": 2,
       "marks": [
         {
-          "assessment": "Midterm",
+          "assessmentType": "Final Exam",
+          "assessmentDate": "2024-05-20",
+          "scores": {
+            "Maths": 85,
+            "English": 88,
+            "Science": 90,
+            "Social Studies": 84
+          }
+        },
+        {
+          "assessmentType": "Midterm",
+          "assessmentDate": "2024-05-10",
           "scores": {
             "Maths": 88,
             "English": 82,
@@ -140,12 +311,33 @@
           }
         },
         {
-          "assessment": "Final Exam",
+          "assessmentType": "Assessment 3",
+          "assessmentDate": "2024-04-25",
           "scores": {
-            "Maths": 85,
-            "English": 88,
-            "Science": 90,
-            "Social Studies": 84
+            "Maths": 80,
+            "English": 75,
+            "Science": 85,
+            "Social Studies": 79
+          }
+        },
+        {
+          "assessmentType": "Assessment 2",
+          "assessmentDate": "2024-04-10",
+          "scores": {
+            "Maths": 82,
+            "English": 78,
+            "Science": 75,
+            "Social Studies": 77
+          }
+        },
+        {
+          "assessmentType": "Assessment 1",
+          "assessmentDate": "2024-03-25",
+          "scores": {
+            "Maths": 75,
+            "English": 70,
+            "Science": 70,
+            "Social Studies": 75
           }
         }
       ]
@@ -156,7 +348,18 @@
       "form": 3,
       "marks": [
         {
-          "assessment": "Midterm",
+          "assessmentType": "Final Exam",
+          "assessmentDate": "2024-05-20",
+          "scores": {
+            "Maths": 82,
+            "English": 85,
+            "Science": 78,
+            "Social Studies": 90
+          }
+        },
+        {
+          "assessmentType": "Midterm",
+          "assessmentDate": "2024-05-10",
           "scores": {
             "Maths": 85,
             "English": 88,
@@ -165,12 +368,33 @@
           }
         },
         {
-          "assessment": "Final Exam",
+          "assessmentType": "Assessment 3",
+          "assessmentDate": "2024-04-25",
           "scores": {
-            "Maths": 82,
-            "English": 85,
-            "Science": 78,
-            "Social Studies": 90
+            "Maths": 80,
+            "English": 82,
+            "Science": 85,
+            "Social Studies": 79
+          }
+        },
+        {
+          "assessmentType": "Assessment 2",
+          "assessmentDate": "2024-04-10",
+          "scores": {
+            "Maths": 78,
+            "English": 75,
+            "Science": 80,
+            "Social Studies": 77
+          }
+        },
+        {
+          "assessmentType": "Assessment 1",
+          "assessmentDate": "2024-03-25",
+          "scores": {
+            "Maths": 75,
+            "English": 70,
+            "Science": 70,
+            "Social Studies": 75
           }
         }
       ]
@@ -181,7 +405,18 @@
       "form": 4,
       "marks": [
         {
-          "assessment": "Midterm",
+          "assessmentType": "Final Exam",
+          "assessmentDate": "2024-05-20",
+          "scores": {
+            "Maths": 88,
+            "English": 82,
+            "Science": 90,
+            "Social Studies": 84
+          }
+        },
+        {
+          "assessmentType": "Midterm",
+          "assessmentDate": "2024-05-10",
           "scores": {
             "Maths": 92,
             "English": 90,
@@ -190,12 +425,33 @@
           }
         },
         {
-          "assessment": "Final Exam",
+          "assessmentType": "Assessment 3",
+          "assessmentDate": "2024-04-25",
           "scores": {
-            "Maths": 88,
+            "Maths": 90,
+            "English": 85,
+            "Science": 88,
+            "Social Studies": 82
+          }
+        },
+        {
+          "assessmentType": "Assessment 2",
+          "assessmentDate": "2024-04-10",
+          "scores": {
+            "Maths": 85,
             "English": 82,
-            "Science": 90,
-            "Social Studies": 84
+            "Science": 85,
+            "Social Studies": 79
+          }
+        },
+        {
+          "assessmentType": "Assessment 1",
+          "assessmentDate": "2024-03-25",
+          "scores": {
+            "Maths": 82,
+            "English": 78,
+            "Science": 80,
+            "Social Studies": 75
           }
         }
       ]

@@ -1,32 +1,56 @@
 <div class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center z-50" *ngIf="student">
   <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50" (click)="closeModal()"></div>
 
-  <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
-
+  <div class="modal-container bg-white w-10/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
    
-    <div class="modal-content py-4 text-left px-6">
-
-
-      <div class="modal-header border-b border-gray-300 pb-3">
-        <h2 class="text-2xl font-semibold text-gray-800">{{ student.name }}</h2>
-        <button class="absolute top-0 right-0 mr-4 mt-2 text-gray-600 hover:text-gray-800" (click)="closeModal()">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <div class="modal-content py-2 text-left px-4">
+      <div class="modal-header border-b border-gray-300 pb-2 flex justify-between items-center">
+        <div>
+          <h2 class="text-lg font-semibold text-gray-800">{{ student.name }}</h2>
+          <p class="text-xs text-gray-700">Student ID: <span class="font-semibold">{{ student.id }}</span></p>
+        </div>
+        <button class="text-gray-600 hover:text-gray-800" (click)="closeModal()">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
-
       <div class="modal-body">
-        <p class="text-lg text-gray-700">Student ID: <span class="font-semibold">{{ student.id }}</span></p>
-        <p class="text-lg text-gray-700">Mean Mark: <span class="font-semibold">{{ student.meanMark }}</span></p>
-        <p class="text-lg text-gray-700">Mean Grade: <span class="font-semibold">{{ student.meanGrade }}</span></p>
-        <div class="grid grid-cols-2 gap-4 mt-4">
-          <div *ngFor="let subject of getSubjectKeys()" class="text-lg text-gray-700">
-            <p>{{ subject }}: <span class="font-semibold">{{ student.marks[0].scores[subject] }}</span></p>
-          </div>
+        <table class="table-auto w-full text-sm">
+          <thead>
+            <tr>
+              <th class="border px-1 py-1">Mean Mark</th>
+              <th class="border px-1 py-1">Mean Grade</th>
+              <ng-container *ngFor="let subject of getSubjectKeys()">
+                <th class="border px-1 py-1">{{ subject }}</th>
+              </ng-container>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border px-1 py-1">{{ student.meanMark }}</td>
+              <td class="border px-1 py-1">{{ student.meanGrade }}</td>
+              <ng-container *ngFor="let subject of getSubjectKeys()">
+                <td class="border px-1 py-1">{{ student.marks[currentAssessmentIndex].scores[subject] }}</td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="mt-2">
+          <span class="text-xs text-gray-600">Assessment Type: <span class="font-semibold">{{ student.marks[currentAssessmentIndex].assessmentType }}</span></span>
+          <br>
+          <span class="text-xs text-gray-600">Assessment Date: <span class="font-semibold">{{ student.marks[currentAssessmentIndex].assessmentDate }}</span></span>
         </div>
       </div>
-
+      
+      <div class="flex justify-between mt-2">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs"
+                (click)="previousAssessment()">Prev</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs"
+                (click)="nextAssessment()">Next</button>
+      </div>
+      
       <div style="display: block;">
         <canvas baseChart
                 [datasets]="lineChartData"
@@ -34,14 +58,8 @@
                 [options]="lineChartOptions"
                 [legend]="lineChartLegend"
                 [type]="'line'">
-          </canvas>
+        </canvas>
       </div>
-      
-
-     
-      <div class="modal-footer mt-4">
-      </div>
-
     </div>
   </div>
 </div>

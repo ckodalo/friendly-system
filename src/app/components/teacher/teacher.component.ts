@@ -15,10 +15,10 @@ export class TeacherComponent implements OnInit {
     students: Student[] = [];
     showModalFlag: boolean = false;
     selectedStudent: Student | null = null;
-
-  selectedForm: number = 0;
-  studentsByForm: { [form: number]: Student[] } = {};
-  //selectedStudent: Student;
+    
+    selectedForm: number = 0;
+    studentsByForm: { [form: number]: Student[] } = {};
+    //selectedStudent: Student;
 
 
   constructor(private performanceService: StudentPerformanceService, private router: Router, private modalService: NgbModal) { }
@@ -27,8 +27,6 @@ export class TeacherComponent implements OnInit {
     this.performanceService.getMockStudentPerformance().subscribe(data => {
 
         this.students = data;
-        this.addMeanGradeandMeanMarktoData(this.students);
-        // this.filterStudentsByForm(this.students);
         this.findStudentsByForm(this.students);
       })
   }
@@ -42,8 +40,8 @@ export class TeacherComponent implements OnInit {
 
     const modalRef = this.modalService.open(StudentModalComponent);
     this.selectedStudent = student;
-    this.selectedStudent = student;
     modalRef.componentInstance.student = this.selectedStudent;
+    modalRef.componentInstance.students = this.students
   }
 
   selectForm(form: number) {
@@ -53,21 +51,6 @@ export class TeacherComponent implements OnInit {
   closeModal(): void {
     this.showModalFlag = false;
     this.selectedStudent = null;
-  }
-
-  addMeanGradeandMeanMarktoData(students : Student[]): void {
-
-    students.forEach(student => {
-
-      const meanMark = this.performanceService.findMeanMarkByStudent(student);
-
-      const meanGrade = this.performanceService.findMeanGrade(meanMark);
-    
-      student.meanMark = meanMark;
-      student.meanGrade = meanGrade;
-        
-      });
-
   }
 
   findStudentsByForm(students: Student[]) {
@@ -83,8 +66,5 @@ export class TeacherComponent implements OnInit {
   getFormKeys(): string[] {
     return Object.keys(this.studentsByForm);
   }
-
-
-
 
 }

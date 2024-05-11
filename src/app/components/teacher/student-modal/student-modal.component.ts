@@ -16,7 +16,9 @@ export class StudentModalComponent {
 
   @Input() students: Student[] = [];
 
-  recentMeanHistory: number[] = [];
+  currentAssessmentIndex: number = 0;
+
+  meanHistory: {meanMark: number, assessmentDate: string}[] = [];
 
   
 
@@ -24,12 +26,13 @@ export class StudentModalComponent {
   }
 
   ngOnInit() {
-    console.log('Received student:', this.student);
+   
+   this.performanceService.addMeanGradeandMeanMarktoStudent(this.students, this.currentAssessmentIndex)
 
     if (this.student != null) {
 
     this.getRecentStudentMeanMarks(this.students, this.student);
-    console.log(this.recentMeanHistory);
+    console.log(this.meanHistory);
     }
   }
 
@@ -45,20 +48,43 @@ export class StudentModalComponent {
 
   getSubjectKeys() {
     if (this.student) {
-    return Object.keys(this.student.marks[0].scores);
+    return Object.keys(this.student.marks[this.currentAssessmentIndex].scores);
     }
 
     return null;
   }
 
   getRecentStudentMeanMarks(students: Student[], currentStudent: Student): void {
-
-     this.recentMeanHistory = this.performanceService.meanMarkHistoryByStudent(students, currentStudent);
+     console.log(this.meanHistory);
     
-     this.lineChartData = [
-      { data: this.recentMeanHistory, label: 'Mean History' }
-    ];
+     this.meanHistory = this.performanceService.meanMarkHistoryByStudent(students, currentStudent);
   
+    const meanMarks = this.meanHistory.map(element => element.meanMark);
+
+    const assesmentDates = this.meanHistory.map(element => element.assessmentDate);
+      
+     this.lineChartData = [
+      { data: meanMarks, label: 'Mean History' }
+    ];
+
+    this.lineChartLabels = assesmentDates;
+  
+  }
+
+  nextAssessment() {
+    if (this.student && this.currentAssessmentIndex < this.student.marks.length - 1) {
+      this.currentAssessmentIndex++;
+    
+       this.performanceService.addMeanGradeandMeanMarktoStudent(this.students, this.currentAssessmentIndex);
+
+    }
+  }
+
+  previousAssessment() {
+    if (this.currentAssessmentIndex > 0) {
+      this.currentAssessmentIndex--;
+      this.performanceService.addMeanGradeandMeanMarktoStudent(this.students, this.currentAssessmentIndex);
+    }
   }
 
 
@@ -77,7 +103,7 @@ export class StudentModalComponent {
   lineChartLabels: string[] = ['MidTerm', 'Finals'];
 
   lineChartData: any[] = [
-    { data: this.recentMeanHistory, label: 'Progress History' }
+    { data: this.meanHistory, label: 'Progress History' }
   ];
 
   lineChartColors: any[] = [
