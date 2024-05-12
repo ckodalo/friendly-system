@@ -14,6 +14,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { FormsModule } from '@angular/forms';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts'
 import { BaseChartDirective } from 'ng2-charts'
+import { DashboardNavigationComponent } from './dashboard-navigation/dashboard-navigation.component'
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { BaseChartDirective } from 'ng2-charts'
         AdminComponent,
         TeacherComponent,
         StudentModalComponent,
+        DashboardNavigationComponent
      
     
     ],
