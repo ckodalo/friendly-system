@@ -11,10 +11,13 @@ import { AdminComponent } from './components/admin/admin.component'
 import { TeacherComponent } from './components/teacher/teacher.component';
 import { StudentModalComponent } from './components/teacher/student-modal/student-modal.component';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts'
 import { BaseChartDirective } from 'ng2-charts'
 import { DashboardNavigationComponent } from './dashboard-navigation/dashboard-navigation.component'
+import { AssessmentsComponent } from './assessments/assessments.component'
+import { CreateAssessmentComponent } from './components/teacher/create-assessment/create-assessment.component'
+import { CommonModule } from '@angular/common'
 
 @NgModule({
     declarations: [
@@ -23,18 +26,21 @@ import { DashboardNavigationComponent } from './dashboard-navigation/dashboard-n
         AdminComponent,
         TeacherComponent,
         StudentModalComponent,
-        DashboardNavigationComponent
+        AssessmentsComponent,
+        CreateAssessmentComponent
      
     
     ],
     imports: [
         BrowserModule,
+        CommonModule,
         HeaderModule,
         FooterModule,
         AppRoutingModule,
         HttpClientModule,
         NgbModule, 
         FormsModule,
+        ReactiveFormsModule,
         BaseChartDirective
     ],
     bootstrap: [AppComponent],

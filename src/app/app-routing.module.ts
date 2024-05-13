@@ -4,12 +4,14 @@ import { LandingComponent } from './components/landing/landing.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { TeacherComponent } from './components/teacher/teacher.component';
 import { DashboardNavigationComponent } from './dashboard-navigation/dashboard-navigation.component';
+import { AssessmentsComponent } from './assessments/assessments.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'admin', component: AdminComponent },
   {path: 'teacher', component: TeacherComponent},
-  {path: 'navigation', component: DashboardNavigationComponent}
+  {path: 'navigation', component: DashboardNavigationComponent},
+  {path: 'assessments', component: AssessmentsComponent}
 ];
 
 @NgModule({
