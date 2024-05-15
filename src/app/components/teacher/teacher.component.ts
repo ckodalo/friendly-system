@@ -67,4 +67,14 @@ export class TeacherComponent implements OnInit {
     return Object.keys(this.studentsByForm);
   }
 
+  goToAssessments() {
+     
+    this.router.navigate(['/assessments']);
+
+  }
+
+  goBack() {
+    this.router.navigate(['/navigation'])
+  }
+
 }
