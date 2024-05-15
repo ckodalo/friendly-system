@@ -1,0 +1,39 @@
+<div class="flex flex-col justify-center items-center h-screen">
+
+  <h1 class="text-4xl font-semibold mb-6 text-center">Welcome to Our Platform</h1>
+
+  <p class="text-lg mb-4 text-gray-800 text-center">Please select your role:</p>
+  <div class="flex justify-center items-center space-x-12">
+
+    <a (click)="navigate('admin')" class="cursor-pointer">
+      <div class="bg-gray-200 hover:bg-gray-300 rounded-full p-6">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-600 mb-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M17.828 2.172a1 1 0 0 1 0 1.414l-8.5 8.5a1 1 0 0 1-1.414 0l-8.5-8.5A1 1 0 0 1 2.172.758l8.5 8.5a3 3 0 0 0 4.242 4.242l.005.005a1 1 0 0 1 1.42 1.409l-2.132 2.121a1 1 0 0 1-1.416 0l-8.5-8.5A3 3 0 0 1 10.329.329l8.5 8.5a1 1 0 0 1 0 1.414l-8.5 8.5a3 3 0 0 1-4.242-4.242l.006-.005a1 1 0 0 0-1.42-1.41l-2.121 2.121a3 3 0 0 0 4.243 4.242l8.5-8.5a1 1 0 0 0 0-1.414l-8.5-8.5a1 1 0 0 1 0-1.414 1 1 0 0 1 1.414 0l8.5 8.5a3 3 0 0 0-4.243 4.242l-2.121 2.121a1 1 0 0 1-1.414 0l2.121-2.121a3 3 0 0 0 0-4.242l-.005-.005a1 1 0 0 1-1.42-1.409l2.132-2.121a1 1 0 0 1 1.416 0z" clip-rule="evenodd" />
+        </svg>
+        <span class="text-lg font-semibold">Admin</span>
+      </div>
+    </a>
+  
+    <a (click)="navigate('teacher')" class="cursor-pointer">
+      <div class="bg-gray-200 hover:bg-gray-300 rounded-full p-6">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-600 mb-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M17.828 2.172a1 1 0 0 1 0 1.414l-8.5 8.5a1 1 0 0 1-1.414 0l-8.5-8.5A1 1 0 0 1 2.172.758l8.5 8.5a3 3 0 0 0 4.242 4.242l.005.005a1 1 0 0 1 1.42 1.409l-2.132 2.121a1 1 0 0 1-1.416 0l-8.5-8.5A3 3 0 0 1 10.329.329l8.5 8.5a1 1 0 0 1 0 1.414l-8.5 8.5a3 3 0 0 1-4.242-4.242l.006-.005a1 1 0 0 0-1.42-1.41l-2.121 2.121a3 3 0 0 0 4.243 4.242l8.5-8.5a1 1 0 0 0 0-1.414l-8.5-8.5a1 1 0 0 1 0-1.414 1 1 0 0 1 1.414 0l8.5 8.5a3 3 0 0 0-4.243 4.242l-2.121 2.121a1 1 0 0 1-1.414 0l2.121-2.121a3 3 0 0 0 0-4.242l-.005-.005a1 1 0 0 1-1.42-1.409l2.132-2.121a1 1 0 0 1 1.416 0z" clip-rule="evenodd" />
+        </svg>
+        <span class="text-lg font-semibold">Teacher</span>
+      </div>
+    </a>
+ 
+    <a (click)="navigate('student')" class="cursor-pointer">
+      <div class="bg-gray-200 hover:bg-gray-300 rounded-full p-6">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-600 mb-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M17.828 2.172a1 1 0 0 1 0 1.414l-8.5 8.5a1 1 0 0 1-1.414 0l-8.5-8.5A1 1 0 0 1 2.172.758l8.5 8.5a3 3 0 0 0 4.242 4.242l.005.005a1 1 0 0 1 1.42 1.409l-2.132 2.121a1 1 0 0 1-1.416 0l-8.5-8.5A3 3 0 0 1 10.329.329l8.5 8.5a1 1 0 0 1 0 1.414l-8.5 8.5a3 3 0 0 1-4.242-4.242l.006-.005a1 1 0 0 0-1.42-1.41l-2.121 2.121a3 3 0 0 0 4.243 4.242l8.5-8.5a1 1 0 0 0 0-1.414l-8.5-8.5a1 1 0 0 1 0-1.414 1 1 0 0 1 1.414 0l8.5 8.5a3 3 0 0 0-4.243 4.242l-2.121 2.121a1 1 0 0 1-1.414 0l2.121-2.121a3 3 0 0 0 0-4.242l-.005-.005a1 1 0 0 1-1.42-1.409l2.132-2.121a1 1 0 0 1 1.416 0z" clip-rule="evenodd" />
+        </svg>
+        <span class="text-lg font-semibold">Student</span>
+      </div>
+    </a>
+  </div>
+
+  <footer class="mt-8 text-gray-600 text-sm">
+    <p>&copy; 2024 Zeraki. All rights reserved.</p>
+  </footer>
+</div>
