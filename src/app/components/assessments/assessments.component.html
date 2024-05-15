@@ -1,0 +1,37 @@
+<div class="p-4">
+  <table class="w-full mt-4 bg-white shadow-md rounded-md">
+    <thead>
+      <tr class="bg-gray-100">
+        <th class="py-2 px-4">Assessment Type</th>
+        <th class="py-2 px-4">Issue Date</th>
+        <th class="py-2 px-4">Due Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let assessment of assessments" class="border-t">
+        <td class="py-2 px-4">{{ assessment.assessmentType }}</td>
+        <td class="py-2 px-4">{{ assessment.assessmentIssueDate }}</td>
+        <td class="py-2 px-4">{{ assessment.assessmentDueDate }}</td>
+      </tr>
+
+      <tr class="border-t border-b">
+        <td class="py-4 px-4" colspan="3">
+          <span class="text-gray-500 italic">No assessments added yet. Add a new assessment now!</span>
+          <button class="bg-blue-100 hover:bg-blue-200 text-blue-800 font-semibold py-1 px-2 ml-2 rounded-md transition duration-300 ease-in-out" (click)="showForm()">
+            <svg class="h-4 w-4 inline-block mr-1 fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 19a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0-2a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm4-8a1 1 0 0 1-1 1h-3v3a1 1 0 0 1-2 0v-3H7a1 1 0 1 1 0-2h3V7a1 1 0 1 1 2 0v3h3a1 1 0 0 1 1 1z" clip-rule="evenodd"/>
+            </svg>
+            Add
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="mt-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out" (click)="goBack()">
+    <svg class="h-4 w-4 inline-block mr-1 fill-current text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM5 9a.75.75 0 0 1 .22-.53l4-4a.75.75 0 0 1 1.06 1.06L7.06 9l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4-4A.75.75 0 0 1 5 9z" clip-rule="evenodd"/>
+    </svg>
+    Back to Teacher Page
+  </button>
+</div>
+
