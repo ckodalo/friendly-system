@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LandingComponent } from './components/landing/landing.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { TeacherComponent } from './components/teacher/teacher.component';
-import { DashboardNavigationComponent } from './dashboard-navigation/dashboard-navigation.component';
-import { AssessmentsComponent } from './assessments/assessments.component';
+import { DashboardNavigationComponent } from './components/dashboard-navigation/dashboard-navigation.component';
+import { AssessmentsComponent } from './components/assessments/assessments.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },

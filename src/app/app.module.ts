@@ -16,8 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts'
 import { BaseChartDirective } from 'ng2-charts'
-import { DashboardNavigationComponent } from './dashboard-navigation/dashboard-navigation.component'
-import { AssessmentsComponent } from './assessments/assessments.component'
+import { DashboardNavigationComponent } from './components/dashboard-navigation/dashboard-navigation.component'
+import { AssessmentsComponent } from './components/assessments/assessments.component'
 import { CreateAssessmentComponent } from './components/teacher/create-assessment/create-assessment.component'
 
 
