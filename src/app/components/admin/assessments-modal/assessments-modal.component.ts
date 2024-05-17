@@ -4,6 +4,7 @@ import { AssessmentService } from 'src/app/services/assesment.service';
 import { StudentPerformanceService } from 'src/app/services/student-performance.service';
 import { Student } from 'src/app/shared/student.interface';
 import {SchoolForm} from 'src/app/shared/school-form.interface'
+import { ChartOptions, ChartType, } from 'chart.js';
 
 @Component({
   selector: 'app-assessments-modal',
@@ -24,7 +25,23 @@ export class AssessmentsModalComponent {
 
   assessmentResults: {meanMark: number, meanGrade: string, meanPoints: number, enrolledStudents: number, assessmentType: string, assessmentDate: string}[] = [];
 
-  
+    // Chart variables
+    public lineChartData: any[] = [
+      { data: [], label: 'Mean Mark', backgroundColor: 'rgba(63, 81, 181, 0.2)',  borderColor: 'rgba(63, 81, 181, 1)' },
+    ];
+    public lineChartLabels: string[] = [];
+    public lineChartOptions: ChartOptions = {
+      responsive: true,
+    };
+    // public lineChartColors: Array<any> = [
+    //   {
+    //     backgroundColor: 'rgba(63, 81, 181, 0.2)',
+    //     borderColor: 'rgba(63, 81, 181, 1)',
+    //   },
+    // ];
+    public lineChartLegend = true;
+    public lineChartType: ChartType = 'line';
+    public lineChartPlugins = [];  
 
   constructor(public activeModal: NgbActiveModal, private performanceService: StudentPerformanceService, private assessmentService: AssessmentService) { 
   }
@@ -33,37 +50,19 @@ export class AssessmentsModalComponent {
    
     if (this.form != null) {
     this.assessmentResults = this.performanceService.findMeanMarkhistoryByForm(this.form, this.students)
-    }
- 
+     
+    this.updateChart();
+  
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['student']) {
-      console.log('Received student:', this.form);
-    }
+
+ 
   }
 
   closeModal(): void {
     this.activeModal.dismiss();
   }
 
-
-  getRecentStudentMeanMarks(students: Student[], currentStudent: Student): void {
-     console.log(this.meanHistory);
-    
-     this.meanHistory = this.performanceService.meanMarkHistoryByStudent(students, currentStudent);
-  
-    const meanMarks = this.meanHistory.map(element => element.meanMark);
-
-    const assesmentDates = this.meanHistory.map(element => element.assessmentDate);
-      
-     this.lineChartData = [
-      { data: meanMarks, label: 'Mean History' }
-    ];
-
-    this.lineChartLabels = assesmentDates;
-  
-  }
 
   nextAssessment() {
     if (this.currentAssessmentIndex < this.students[0].marks.length - 1) {
@@ -81,35 +80,15 @@ export class AssessmentsModalComponent {
     }
   }
 
+  updateChart() {
+    const meanMarks = this.assessmentResults.map(result => result.meanMark);
+    const assessmentDates = this.assessmentResults.map(result => result.assessmentDate);
 
-  lineChartOptions: any = {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
-        max: 100
-      }
-    }
-  };
-
-
-  //need to make this dynamic
-  lineChartLabels: string[] = ['MidTerm', 'Finals'];
-
-  lineChartData: any[] = [
-    { data: this.meanHistory, label: 'Progress History' }
-  ];
-
-  lineChartColors: any[] = [
-    {
-      borderColor: 'blue',
-      backgroundColor: 'rgba(0, 0, 255, 0.1)',
-    },
-  ];
-
-  lineChartType: string = 'line';
-
-  lineChartLegend: boolean = true;
+    this.lineChartData = [
+      { data: meanMarks, label: 'Mean Mark' },
+    ];
+    this.lineChartLabels = assessmentDates;
+  }
 
 
 }

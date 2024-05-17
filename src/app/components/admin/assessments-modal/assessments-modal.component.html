@@ -50,6 +50,17 @@
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs"
                 (click)="nextAssessment()" [disabled]="currentAssessmentIndex >= assessmentResults.length - 1">Next</button>
       </div>
+
+      <div class="mt-4">
+        <canvas baseChart
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [legend]="lineChartLegend"
+          [type]="lineChartType"
+          [plugins]="lineChartPlugins">
+        </canvas>
+      </div>
     </div>
   </div>
 </div>
