@@ -1,0 +1,56 @@
+<div class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center z-50" *ngIf="form">
+  <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50" (click)="closeModal()"></div>
+  
+  <div class="modal-container bg-white w-10/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+    <div class="modal-content py-2 text-left px-4">
+      <div class="modal-header border-b border-gray-300 pb-2 flex justify-between items-center">
+        <div>
+          <h2 class="text-lg font-semibold text-gray-800">Form {{ form }}</h2>
+        </div>
+        <button class="text-gray-600 hover:text-gray-800" (click)="closeModal()">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div *ngIf="assessmentResults[currentAssessmentIndex]">
+          <p class="text-sm text-gray-700">
+            <strong>Assessment Type:</strong> {{ assessmentResults[currentAssessmentIndex].assessmentType }}
+          </p>
+          <p class="text-sm text-gray-700">
+            <strong>Assessment Date:</strong> {{ assessmentResults[currentAssessmentIndex].assessmentDate }}
+          </p>
+        </div>
+        
+        <table class="table-auto w-full text-sm" *ngIf="assessmentResults.length > 0">
+          <thead>
+            <tr>
+              <th class="border px-1 py-1">Mean Mark</th>
+              <th class="border px-1 py-1">Mean Grade</th>
+              <th class="border px-1 py-1">Mean Points</th>
+              <th class="border px-1 py-1">Enrolled Students</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="assessmentResults[currentAssessmentIndex]">
+              <td class="border px-1 py-1">{{ assessmentResults[currentAssessmentIndex].meanMark }}</td>
+              <td class="border px-1 py-1">{{ assessmentResults[currentAssessmentIndex].meanGrade }}</td>
+              <td class="border px-1 py-1">{{ assessmentResults[currentAssessmentIndex].meanPoints }}</td>
+              <td class="border px-1 py-1">{{ assessmentResults[currentAssessmentIndex].enrolledStudents }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="flex justify-between mt-2">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs"
+                (click)="previousAssessment()" [disabled]="currentAssessmentIndex === 0">Prev</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs"
+                (click)="nextAssessment()" [disabled]="currentAssessmentIndex >= assessmentResults.length - 1">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+

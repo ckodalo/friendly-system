@@ -1,96 +1,50 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentPerformanceService } from 'src/app/services/student-performance.service';
 import { Student } from 'src/app/shared/student.interface';
+import {Assessment} from 'src/app/shared/assessment.interface';
 import { Router } from '@angular/router';
 import { BaseChartDirective } from 'ng2-charts';
+import { AssessmentService } from 'src/app/services/assesment.service';
+import { AssessmentsModalComponent } from './assessments-modal/assessments-modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SchoolForm } from 'src/app/shared/school-form.interface';
 
 
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
   
-
-  studentPerformanceData: any;
-
   students: Student[] = [];
-  
-  formPerformanceMetrics: any[] = [];
+  selectedForm: number = 0;
+  assessmentsByForm: { [form: number]:  Assessment[]} = {};
+  showModalFlag: boolean = false;
 
-  numberOfTeachers: number = 7;
-  numberOfStudents: number = 0;
-  numberOfForms: number = 0;
-
-  constructor(private performanceService : StudentPerformanceService, private router: Router) {
+  constructor(private performanceService : StudentPerformanceService, private assessmentService: AssessmentService, private router: Router, private modalService: NgbModal) {
     
   }
 
   ngOnInit(): void {
 
     this.performanceService.getMockStudentPerformance().subscribe(data => {
-
-      this.students = data;
-      this.findFormPerformanceMetrics();
-      this.findSummaryMetrics();
-      
+      this.students = data;    
     })
   }
 
-
-  findFormPerformanceMetrics(): void {
-    const forms = new Set(this.students.map(student => student.form));
-    forms.forEach(form => {
-      const studentsInForm = this.students.filter(student => student.form === form);
-      const meanMark = this.performanceService.findMeanMarkByStudents(studentsInForm);
-      const meanGrade = this.performanceService.findMeanGrade(meanMark);
-      const points = this.performanceService.awardPoints(meanGrade);
-      console.log(points);
-      this.formPerformanceMetrics.push({
-        form: form,
-        totalStudents: studentsInForm.length,
-        meanMark: meanMark,
-        meanGrade: meanGrade,
-        meanPoints: points 
-      });
-    });
-  }
-
-  findSummaryMetrics(): void {
-    this.performanceService.getMockStudentPerformance().subscribe(students => {
-      this.numberOfStudents = students.length;
-      this.numberOfForms = this.findNumberofForms(students);
-  
-      this.chartData = [
-        { data: [this.numberOfTeachers, this.numberOfStudents, this.numberOfForms], label: 'Summary Metrics' }
-      ];
-    });
-  }
-
-  findNumberofForms(students: Student[]): number {
-    const forms = new Set(students.map(student => student.form));
-    return forms.size;
-  }
-
-  goToTeacherDashboard(): void {
-    this.router.navigate(['/teacher']);
+  goToNavigation(): void {
+    this.router.navigate(['/navigation']);
   }
 
 
-  chartData: any[] = [
-    { data: [this.numberOfTeachers, this.numberOfStudents, this.numberOfForms], label: 'Summary Metrics' }
-  ];
-
-  chartLabels: string[] = ['Teachers', 'Students', 'Forms'];
-
-  chartOptions: any = {
-    responsive: true,
-    maintainAspectRatio: false
-  };
-
-
-  chartLegend: boolean = false;
+  selectForm(formNumber: number) {
+    this.selectedForm = formNumber;
+    console.log("form is :" + formNumber)
+    const modalRef = this.modalService.open(AssessmentsModalComponent);
+    
+    modalRef.componentInstance.form = formNumber;
+    modalRef.componentInstance.students = this.students;
+  }
 
 }

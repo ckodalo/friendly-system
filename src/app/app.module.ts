@@ -19,6 +19,7 @@ import { BaseChartDirective } from 'ng2-charts'
 import { DashboardNavigationComponent } from './components/dashboard-navigation/dashboard-navigation.component'
 import { AssessmentsComponent } from './components/assessments/assessments.component'
 import { CreateAssessmentComponent } from './components/teacher/create-assessment/create-assessment.component'
+import { AssessmentsModalComponent } from './components/admin/assessments-modal/assessments-modal.component'
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CreateAssessmentComponent } from './components/teacher/create-assessmen
         TeacherComponent,
         StudentModalComponent,
         AssessmentsComponent,
-        CreateAssessmentComponent
+        CreateAssessmentComponent,
+        AssessmentsModalComponent
      
     
     ],

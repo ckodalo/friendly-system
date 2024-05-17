@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, find, map } from 'rxjs';
 import { Student } from '../shared/student.interface';
+import { SchoolForm } from '../shared/school-form.interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -128,7 +130,7 @@ export class StudentPerformanceService {
   }
 
   meanMarkHistoryByStudent (students: Student[], student: Student):  {meanMark: number, assessmentDate: string}[] {
-
+ 
     const results: {meanMark: number, assessmentDate: string}[] = [];
 
     const studentAssesments = student.marks;
@@ -143,5 +145,63 @@ export class StudentPerformanceService {
         });
     }
     return results;
+  }
+
+  //mean mark across all assessments given to a form 
+  findMeanMarkhistoryByForm(formName: number, students: Student[]): {meanMark: number, meanGrade: string, meanPoints: number, enrolledStudents: number, assessmentType: string, assessmentDate: string}[]  {
+  
+    
+    const results: {meanMark: number, meanGrade: string, meanPoints: number, enrolledStudents: number, assessmentType: string, assessmentDate: string}[] = [];
+  
+
+    
+   
+    for (let currentAssessmentIndex = 0; currentAssessmentIndex < students[0].marks.length; currentAssessmentIndex++) {  
+  
+      const preliminaryHolder: number[] = [];
+      let numberOfStudents = 0; 
+
+      const currentAssessmentType = students[0].marks[currentAssessmentIndex].assessmentType;
+      const currentAssesmentDate = students[0].marks[currentAssessmentIndex].assessmentDate;
+  
+      for (const student of students) {
+
+         if (student.form == formName) {
+
+          numberOfStudents++;
+          const studentMean = this.findMeanMarkTwo(student.marks[currentAssessmentIndex].scores);
+          console.log("student mean is :" + studentMean);     
+          preliminaryHolder.push(studentMean);
+
+        }
+      }
+
+      if (preliminaryHolder.length === 0) {
+        console.error(`No valid students found for form: ${formName} at assessment index: ${currentAssessmentIndex}`);
+        continue; // Skip this assessment if no valid marks
+      }
+
+
+      console.log("preliminary Holder is :" + preliminaryHolder);
+
+      const sum = preliminaryHolder.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+      const meanMarkByAssessment = Math.round(sum / preliminaryHolder.length);
+      console.log("meanmark by assessment :" + meanMarkByAssessment);
+      const meanGradeByAssessment = this.findMeanGrade(meanMarkByAssessment); 
+      const pointsByAssessment = this.awardPoints(meanGradeByAssessment);
+
+
+      results.push({
+        meanMark: Math.round(meanMarkByAssessment),
+        meanGrade: meanGradeByAssessment,
+        meanPoints: pointsByAssessment,
+        enrolledStudents: numberOfStudents,
+        assessmentType: currentAssessmentType,
+        assessmentDate: currentAssesmentDate
+      })
+
+    }
+   return results; 
   }
 }
