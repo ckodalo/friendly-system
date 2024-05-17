@@ -8,7 +8,6 @@ import { StudentModalComponent } from './student-modal/student-modal.component';
 @Component({
   selector: 'app-teacher',
   templateUrl: './teacher.component.html',
-  styleUrls: ['./teacher.component.css']
 })
 export class TeacherComponent implements OnInit {
   
