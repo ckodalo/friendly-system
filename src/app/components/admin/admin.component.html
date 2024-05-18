@@ -17,6 +17,16 @@
 
   <h2 class="text-xl font-semibold mb-4">School Performance Overview</h2>
   <section class="bg-white shadow-md mb-8 rounded-lg p-6">
+    <div style="display: block;">
+      <canvas baseChart
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [legend]="lineChartLegend"
+              [type]="lineChartType"
+              [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
     <div class="flex items-center mb-4 space-x-4">
       <button (click)="selectForm(1)" class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">Form 1</button>
       <button (click)="selectForm(2)" class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">Form 2</button>

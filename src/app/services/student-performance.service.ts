@@ -204,4 +204,40 @@ export class StudentPerformanceService {
     }
    return results; 
   }
+
+  findMeanMarkByFormsAndAssessments(students: Student[]): { [form: number]: number[] } {
+    const formAssessmentData: { [form: number]: { [assessmentIndex: number]: number[] } } = {};
+
+    for (const student of students) {
+      const { form, marks } = student;
+
+      if (!formAssessmentData[form]) {
+        formAssessmentData[form] = {};
+      }
+
+      marks.forEach((mark, index) => {
+        if (!formAssessmentData[form][index]) {
+          formAssessmentData[form][index] = [];
+        }
+
+        const meanMark = this.findMeanMarkTwo(mark.scores);
+        formAssessmentData[form][index].push(meanMark);
+      });
+    }
+
+    const meanMarksByForm: { [form: number]: number[] } = {};
+
+    for (const form in formAssessmentData) {
+      meanMarksByForm[form] = [];
+
+      for (const index in formAssessmentData[form]) {
+        const meanMarks = formAssessmentData[form][index];
+        const sum = meanMarks.reduce((acc, mark) => acc + mark, 0);
+        const mean = sum / meanMarks.length;
+        meanMarksByForm[form].push(mean);
+      }
+    }
+
+    return meanMarksByForm;
+  }
 }
